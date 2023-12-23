@@ -5,12 +5,8 @@ const eur = document.querySelector('#eur');
 const fetchData = async () => {
     try {
         const response = await fetch('../data/converter.json');
-        if (!response.ok) {
-            throw new Error('Network response was not ok.');
-        }
-        return await response.json();
     } catch (error) {
-        console.error('There was a problem fetching data:', error);
+        console.error('Не удалось получить данные:', error);
         return null;
     }
 };
@@ -35,10 +31,10 @@ const convertCurrency = async (element, targetElement, current, data) => {
                 break;
         }
         if (element.value === '') {
-            targetElement.value = ''; // Очистка значения, если ввод пустой
+            targetElement.value = ''; 
         }
     } catch (error) {
-        console.error('Conversion error:', error);
+        console.error('Ошибка конвертации:', error);
     }
 };
 
